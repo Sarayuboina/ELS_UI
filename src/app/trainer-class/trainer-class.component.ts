@@ -4,6 +4,7 @@ import { AdminServiceService } from '../admin-service.service';
 import { Grade } from '../grade';
 import { Group } from '../group';
 import { MainserviceService } from '../mainservice.service';
+import { StudentServiceService } from '../student-service.service';
 import { TrainerServiceService } from '../trainer-service.service';
 
 @Component({
@@ -20,8 +21,10 @@ export class TrainerClassComponent implements OnInit{
   public grade=new Grade();
   public grades:any;
   public subjects:any;
-
-  constructor(private route:ActivatedRoute,private ms:MainserviceService,private as:AdminServiceService,private ts:TrainerServiceService,private router:Router){  
+  public students:any;
+  public rating=0;
+  public stars: boolean[] = Array(5).fill(false);
+  constructor(private route:ActivatedRoute,private ms:MainserviceService,private as:AdminServiceService,private ts:TrainerServiceService,private ss:StudentServiceService,private router:Router){  
 
   }
   
@@ -37,6 +40,9 @@ export class TrainerClassComponent implements OnInit{
           this.as.getGrade(this.class.groupGrad).subscribe(
             data=>{
                  this.grade=data;
+                 for(let i=0;i<this.class.rating;i++){
+                   this.stars[0]=true;
+                 }
                  console.log(data);
             },
             error=>{
@@ -51,6 +57,24 @@ export class TrainerClassComponent implements OnInit{
             },
             error=>{
               console.log(error)
+      
+            }
+          )
+
+          this.ss.getGroupRating(this.groupId).subscribe(
+            data=>{
+              var s=0;
+              this.students=data;
+             for(let i=0;i<this.students.length;i++){
+              s=s+this.students[i].rating;
+             }
+             this.rating=s/this.students.length;
+             for(let j=0;j<this.rating;j++){
+              this.stars[j]=true;
+             }
+             
+            },
+            error=>{
       
             }
           )

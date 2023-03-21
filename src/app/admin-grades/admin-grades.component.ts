@@ -99,9 +99,10 @@ edit(gradId : number){
     data=>{
       console.log("response received....");
       //this.router.navigate(['adminGrad',this.id]);
+      this.ngOnInit();
       this.snackBar.open("Successfully added!!","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition})
-      this.ngOnInit();
+     
       
       
     },

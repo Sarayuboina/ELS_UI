@@ -96,7 +96,7 @@
   <div class="modal fade" [id]=grad.gradId tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <form   (ngSubmit)="edit(grad.gradId)">
+        <form #editForm="ngForm"  (ngSubmit)="edit(grad.gradId)">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle"><b>Edit your new grade!!!</b> <span> &nbsp;<i class="fas fas fa-chalkboard" style="color: #0b29ab;"></i></span></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">

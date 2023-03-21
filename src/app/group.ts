@@ -6,6 +6,7 @@ export class Group {
     groupSub !: number;
     groupLimit !: number;
   trainerId !: number;
+  rating!:number;
 
     constructor(){
     

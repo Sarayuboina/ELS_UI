@@ -16,9 +16,9 @@ export class LoginAndRegisterService {
   
 
   registerUser(user: RegisterUser):Observable<any>{
-    return this.http.post<RegisterUser>("http://localhost:8098/elearning/api/register",user);
+    return this.http.post<RegisterUser>("http://localhost:8098/elearning/api/main/register",user);
   }
   login(user: LoginUser):Observable<any>{
-    return this.http.post("http://localhost:8098/elearning/api/login",user);
+    return this.http.post("http://localhost:8098/elearning/api/main/login",user);
   }
 }

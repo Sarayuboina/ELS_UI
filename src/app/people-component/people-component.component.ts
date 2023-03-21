@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { GroupServiceService } from '../group-service.service';
 import { MainserviceService } from '../mainservice.service';
+import { StudentServiceService } from '../student-service.service';
+import { TrainerServiceService } from '../trainer-service.service';
 
 @Component({
   selector: 'app-people-component',
@@ -12,7 +16,15 @@ export class PeopleComponentComponent implements OnInit {
   public loggedIn:any;
   public groupId:any;
   public id:any;
-  constructor(private ms:MainserviceService,private route:ActivatedRoute){
+  public people:any;
+  public class:any;
+  public user:any;
+  public stud:any;
+  public feed:any;
+  durationInSeconds = 5;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+verticalPosition: MatSnackBarVerticalPosition = 'top';
+  constructor(private ms:MainserviceService,private route:ActivatedRoute,private ss:StudentServiceService,private gs:GroupServiceService,private ts:TrainerServiceService,private snackBar:MatSnackBar){
 
   }
   ngOnInit(): void {
@@ -21,6 +33,61 @@ export class PeopleComponentComponent implements OnInit {
     this.groupId=this.route.snapshot.paramMap.get('groupId');
 
     
+    this.gs.getPeopleData(this.groupId).subscribe(
+      data=>{
+        this.people=data;
+        console.table(data);
+      },
+      error=>{
+
+      }
+
+      
+    )
+
+    this.ts.getClassData(this.groupId).subscribe(
+      data=>{
+        this.class=data;
+      },
+      error=>{
+
+      }
+    )
+    this.ms.getUser(this.id).subscribe(
+      data=>{
+        this.user=data;
+      },
+      error=>{
+
+      }
+    )
+
+  }
+
+  addFeed(userId:number){
+    this.ss.addFeedback(userId,this.feed,this.groupId).subscribe(
+      data=>{
+        this.snackBar.open("Feedback added successfully","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition})
+
+      },
+      error=>{
+        this.snackBar.open(error["error"],"X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,})
+      }
+    )
+   
+  }
+
+  getFeed(){
+    this.ss.getStudentData(this.id,this.groupId).subscribe(
+      data=>{
+         this.stud=data;
+      },
+      error=>{
+
+      }
+    )
   }
 
 }

@@ -1,4 +1,5 @@
 export class RegisterUser{
+  id!:number;
   firstName:string='';
   lastName:string="";
   userName:string="";

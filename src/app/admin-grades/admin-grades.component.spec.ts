@@ -17,7 +17,8 @@ describe('AdminGradesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should log in', () => {
+    component.add();
     expect(component).toBeTruthy();
   });
 });

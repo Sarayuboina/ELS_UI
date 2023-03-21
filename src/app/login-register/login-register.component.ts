@@ -163,7 +163,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'top';
           
         // }
         // console.log(data)
-        let myJson = JSON.parse(JSON.stringify(data))
+        //let myJson = JSON.parse(JSON.stringify(data))
         console.log(data)
         // console.log(myJson[0]["token"]);
         // var tok=myJson[0]["token"];

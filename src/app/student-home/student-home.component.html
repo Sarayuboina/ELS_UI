@@ -33,11 +33,7 @@
             </div>
           </ul>
           <br>
-          <!-- <mat-selection-list #subjects [(ngModel)]="selectedItems">
-            <mat-list-option [value]="sub.subId" *ngFor="let sub of subjects">
-              {{sub.subName}}
-            </mat-list-option>
-          </mat-selection-list> -->
+          
          
             <input type="submit"  value="Submit" >
              
@@ -45,12 +41,13 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-secondary">Add</button>
+          <!-- <button type="submit" class="btn btn-secondary">Add</button> -->
         </div>
   
     </div>
     </div>
     </div>
+    <!------------------------------------------ End Modal----------------------------------------------------->
     </div>
     <div *ngIf="msg == 'Success' ">
       <div *ngIf="groups.length != 0">

@@ -1,13 +1,77 @@
-<div  class="card shadow-lg border-success mb-3" style="margin-left: 5%;width: 75%;">
+<div  class="card " style="margin-left: 5%;width: 75%;">
             
-    <div class="card-body  border-success">
+    
       
-        <h3 style="color:blue;font-style: italic;">Interests</h3>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+       
+        <ul class="list-group list-group-flush" >
+            <li class="list-group-item" style="color:green;font-style: oblique;"><b>Trainer</b></li>
+            <div *ngFor="let p of people">
+            <div *ngIf="p.role == 2">
+            <li class="list-group-item"><i class="fas fa-user-tie fa-lg" style="color:gray"></i><span>&nbsp;&nbsp;{{p.firstName}}&nbsp;{{p.lastName}}</span><span style="color:gray" *ngIf="p.userId==id" class="divider">Me</span></li>
+            </div>
+            </div>
+          </ul>
+          </div>
+          <br>
+          <div  class="card " style="margin-left: 5%;width: 75%;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="color:chocolate;font-style: oblique;">Students</li>
+            <div *ngFor="let p of people">
+            <div *ngIf="p.role == 3">
+            
+            <li class="list-group-item"><i class="fas fa-user-graduate fa-lg" style="color:gray"></i><span>&nbsp;&nbsp;{{p.firstName}}&nbsp;{{p.lastName}}</span><span style="color:gray" *ngIf="p.userId==id" class="divider"><button class="btn btn-outline-transparent" data-toggle="modal" type="submit" (click)="getFeed()" [attr.data-target]="'#get' + p.userId">&nbsp;Feedback</button> &nbsp;Me</span><span style="color:rgb(90, 112, 194)" *ngIf="user.role==2" class="divider"><a data-toggle="modal"    type="submit" [attr.data-target]="'#add' + p.userId">Provide feedback</a></span></li></div>
+            <!---------------------------------Edit Answer ---------------------------->
+    <div class="modal fade" [id]="'add'+p.userId" role="dialog" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog d-flex justify-content-center" role="document">
+          <div class="modal-content w-710">
+                                  
+              <div class="modal-body p-4">
+                  <form  #addForm="ngForm" (ngSubmit)="addFeed(p.userId)">
+                                          <!-- Name input -->
+                      <div class="form-outline mb-4">
+                          <form >
+                              <textarea [(ngModel)]="feed"  rows="7"
+                                        cols="45"
+                                        name="comment">
+                              </textarea>
+                              <br>
+                          </form>
+                                              
+                          </div>
+                                          <!-- Submit button -->
+                          <button type="submit" class="btn btn-primary">Provide</button>
+                                          &nbsp;
+                          <button type="button" class="btn btn-warning " data-dismiss="modal">Close</button>
+                      </form>
+                 </div>
+              </div>
+          </div>
+      </div>
+      <!------------------------------------End Modal------------------------------------->
+      <!----------------------------------Get Feed---------------------------------------->
+      <!-- <div class="modal fade" [id]="'get'+p.userId" role="dialog" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center" role="document">
+            <div class="modal-content w-710">
+                                    
+                <div class="modal-body p-4">
+                    
+                  <div *ngIf="stud.feed == null">
+                    <h3>No feedback available</h3>
+
+                  </div>
+                  <div *ngIf="stud.feed!=null">
+                    <h3>{{stud.feed}}</h3>
+                  </div>
+                            <button type="button" class="btn btn-warning " data-dismiss="modal">Close</button>
+                        
+                   </div>
+                </div>
+            </div>
+        </div> -->
+      <!-----------------------------------End--------------------------------------------->
+
+            </div>
+            
           </ul>
         
     </div>
-</div>

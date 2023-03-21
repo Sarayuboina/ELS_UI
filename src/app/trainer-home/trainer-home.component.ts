@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { AdminServiceService } from '../admin-service.service';
 import { Group } from '../group';
@@ -21,8 +22,11 @@ export class TrainerHomeComponent implements OnInit{
   
   subjects : any;
   grades : any;
+  durationInSeconds = 5;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private route:ActivatedRoute,private ms:MainserviceService,private fb: FormBuilder,private as:AdminServiceService,private ts:TrainerServiceService){
+  constructor(private route:ActivatedRoute,private ms:MainserviceService,private fb: FormBuilder,private as:AdminServiceService,private ts:TrainerServiceService,private snackBar:MatSnackBar){
     this.form = this.fb.group({
       checkArray: this.fb.array([], [Validators.maxLength(1)]),
       
@@ -128,7 +132,8 @@ export class TrainerHomeComponent implements OnInit{
    this.gr.trainerId=id;
    this.ts.insertGroup(this.gr,id).subscribe(
     data=>{
-        
+      this.snackBar.open("Created successfully","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition})
     },
     error=>{
       

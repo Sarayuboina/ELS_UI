@@ -1,0 +1,20 @@
+<div *ngIf="user.role == 1">
+    <app-trainer-dash></app-trainer-dash>
+</div>
+<div *ngIf="user.role == 2">
+    <app-trainer-dash></app-trainer-dash>
+</div>
+<div *ngIf="user.role == 3">
+    <app-student-dash></app-student-dash>
+</div>
+<br>
+<div class="card-deck">
+ <div *ngFor="let us of users">
+    <div class="card">
+        <div class="card-body">
+            <a class="nav-link" [routerLink]="['/searchProf',id,us.userId]">{{us.firstName}} &nbsp; {{us.lastName}}</a>
+           <div *ngIf="us.role == 2">Role : Trainer</div> <div *ngIf="us.role == 3">Role : Student</div>
+        </div>
+    </div>
+ </div>
+</div>

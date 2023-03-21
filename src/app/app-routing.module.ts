@@ -9,8 +9,12 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { HomeComponent } from './home/home.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponentComponent } from './profile-component/profile-component.component';
 import { RegisterComponent } from './register/register.component';
+import { SearchProfComponent } from './search-prof/search-prof.component';
+import { SearchUserComponent } from './search-user/search-user.component';
 import { StudentClassComponent } from './student-class/student-class.component';
+import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { StudentGroupsComponent } from './student-groups/student-groups.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { TrainerClassComponent } from './trainer-class/trainer-class.component';
@@ -88,8 +92,23 @@ const routes: Routes = [
       
     },
     {
+      path:'studFeed/:userId',
+      component:StudentFeedbackComponent,canActivate:[AuthServiceService]
+      
+    },
+    {
       path:'userProfile/:userId',
-      component:UserProfileComponent,canActivate:[AuthServiceService]
+      component:ProfileComponentComponent,canActivate:[AuthServiceService]
+      
+    },
+    {
+      path:'search/:userId/:val',
+      component:SearchUserComponent,canActivate:[AuthServiceService]
+      
+    },
+    {
+      path:'searchProf/:userId/:searchId',
+      component:SearchProfComponent,canActivate:[AuthServiceService]
       
     }
 ];

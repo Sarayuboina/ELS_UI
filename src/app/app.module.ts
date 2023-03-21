@@ -32,6 +32,14 @@ import { StudentClassComponent } from './student-class/student-class.component';
 import { StudentGroupsComponent } from './student-groups/student-groups.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PeopleComponentComponent } from './people-component/people-component.component';
+import { ProfileComponentComponent } from './profile-component/profile-component.component';
+import { SearchUserComponent } from './search-user/search-user.component';
+import { SearchProfComponent } from './search-prof/search-prof.component';
+import { QuestionsAndAnswersComponent } from './questions-and-answers/questions-and-answers.component';
+import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { TrainerAssignmentsComponent } from './trainer-assignments/trainer-assignments.component';
+
 
 
 
@@ -58,6 +66,14 @@ import { PeopleComponentComponent } from './people-component/people-component.co
     StudentGroupsComponent,
     UserProfileComponent,
     PeopleComponentComponent,
+    ProfileComponentComponent,
+    SearchUserComponent,
+    SearchProfComponent,
+    QuestionsAndAnswersComponent,
+    StudentFeedbackComponent,
+    FileUploadComponent,
+    TrainerAssignmentsComponent,
+    
    
   ],
   imports: [

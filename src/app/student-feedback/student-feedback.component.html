@@ -1,0 +1,67 @@
+<app-student-dash></app-student-dash>
+<section class="vh-100" style="background-color: #f2f4df;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-60">
+        <div class="col col-xl-10">
+          <div class="card shadow-lg" style="border-radius: 1rem;background-color: rgb(113, 110, 110);">
+            <div class="row g-0">
+              <div class="col-md-5 col-lg-5 d-none d-md-block">
+                <img src="assets/img/rating1.webp" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;width:400px;height:500px;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form #changeform="ngForm"  (ngSubmit)="addRating()" > 
+                    <small class="danger">{{msg}}</small> 
+    
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      
+                      <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;"><i class="far fa-smile fa-2x me-3" style="color: #feee0a;"></i><span style="color: azure;">Rate your class</span></h5>
+                    </div>
+  
+                    
+  
+                    <div class="form-outline mb-4">
+                        <select [(ngModel)]="groupId" class="form-control" name="group" aria-placeholder="Choose your group" class="form-control form-control">
+                            <option value="undefined" selected disabled>Select Group</option>
+                            <option *ngFor="let gr of groups" [ngValue]="gr.groupId">{{gr.groupName}}</option>
+                        </select>
+                        <p></p>
+                      <label class="form-label" for="form2Example17" style="color: azure;">&nbsp;Select Group</label>
+                    
+                      
+                    
+                    </div>
+                    <span class="sp"
+  *ngFor="let star of stars; let i = index"
+  (click)="rate(i + 1)"
+>
+  <ng-container *ngIf="star; else noStar" style="font-size: large;"> ⭐ </ng-container>
+  <ng-template #noStar>★</ng-template>
+</span>
+  
+                    
+
+                   
+
+                    
+                     
+  
+                    <div class="pt-1 mb-4">
+                      <button  type="submit" class="btn btn-success">Submit</button>
+                    </div>
+  
+                    
+                    <!-- <a href="#!" class="small text-muted" style="color: black;">Terms of use.</a>
+                    <a href="#!" class="small text-muted" style="color: black;">Privacy policy</a> -->
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+

@@ -8,6 +8,19 @@ import { Student } from './student';
   providedIn: 'root'
 })
 export class StudentServiceService {
+  addFeedback(userId: number, feed: any,groupId:number) {
+    let url=this.baseUrl+"/addFeed/"+userId+'/'+groupId;
+    return this.http.post(url,feed);
+  }
+  getGroupRating(groupId: number):Observable<any> {
+    let url=this.baseUrl+"/getRating/"+groupId;
+    return this.http.get(url);
+  }
+  addRate(id: any, groupId: number, val: number):Observable<any> {
+    let url=this.baseUrl+"/addRating/"+id+'/'+groupId;
+    return this.http.post(url,val);
+  }
+  
   deleteStudent(studId:number) {
     let url=this.baseUrl+"/delete/"+studId;
     return this.http.delete(url);

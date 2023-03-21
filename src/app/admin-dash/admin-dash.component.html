@@ -38,7 +38,7 @@
       <span>
       <form class="form-inline my-lg-0 my-lg-0" >
         <input [(ngModel)]="val" class="form-control mr-sm-2"  name="val" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success my-4 my-lg-3" type="submit">Search</button>
+        <button class="btn btn-success my-4 my-lg-3" type="submit" [routerLink]="['/search',id,val]">Search</button>
       </form>
       </span>
       

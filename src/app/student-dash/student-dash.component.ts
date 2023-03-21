@@ -13,6 +13,7 @@ export class StudentDashComponent implements OnInit{
   username='';
   user:any;
   val='';
+  public users:any;
   public loggedIn =false;
   constructor(private ms:MainserviceService,private route:ActivatedRoute,private router:Router) { }
 
@@ -27,6 +28,19 @@ export class StudentDashComponent implements OnInit{
     this.ms.logout();
     location.href="/login";
     // location.href="/login";
+  }
+
+  searchUser(){
+    this.ms.getUsers(this.val).subscribe(
+      data=>{
+      
+       
+       this.router.navigate(['/search/',this.val]);
+      },
+      error=>{
+
+      }
+    )
   }
 
 }

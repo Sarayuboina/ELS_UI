@@ -12,7 +12,7 @@
           <a class="nav-link active" [routerLink]="['/studGroups',id]">Groups </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Subjects</a>
+          <a class="nav-link active" [routerLink]="['/studFeed',id]">Feedback</a>
         </li>
       </ul>
       <ul class="navbar-nav mr-auto">
@@ -36,9 +36,9 @@
               </li>
               </ul>
       <span>
-      <form class="form-inline my-lg-0 my-lg-0" >
+      <form class="form-inline my-lg-0 my-lg-0" (ngSubmit)="searchUser()">
         <input [(ngModel)]="val" class="form-control mr-sm-2"  name="val" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary my-4 my-lg-3" type="submit">Search</button>
+        <button class="btn btn-primary my-4 my-lg-3" type="submit" [routerLink]="['/search',id,val]">Search</button>
       </form>
       </span>
       
