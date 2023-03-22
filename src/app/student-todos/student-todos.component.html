@@ -1,0 +1,56 @@
+<app-student-dash></app-student-dash><br>
+<div *ngIf="assigns.length == 0">
+   <h3 style="color:green;text-align:center;">You are upto date </h3>
+</div>
+<div  class="card-deck" style="margin-left: 15%;margin-right: 15%;" *ngFor="let ass of assigns">
+    <div class="card mb-3 border-primary" >
+        <div class="card-body shadow-lg">
+            {{ass.assignName}}   
+            <span style="float: right;">Due time : {{ ass.endDate | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+           <div></div> <button class="btn btn-success" style="float:right" data-toggle="modal" type="submit" [attr.data-target]="'#uploadFile' + ass.assignId">Submit</button>
+                <!-------------------------Upload Assignment--------------------------------->
+                <div class="modal fade" [id]="'uploadFile'+ ass.assignId" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog d-flex justify-content-center">
+                        <div class="modal-content w-75">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel2">Assignment Details</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-4">
+                                <form  #groupForm="ngForm" (ngSubmit)="uploadAssign(ass.assignId)" enctype="multipart/form-data">
+                                    <!-- Name input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" >Assignment</label>
+                                        <input type="file" (change)="selectFile($event)" />
+                                       
+                                    </div>
+                                   
+                                    <div *ngIf="currentFile" class="progress my-3">
+                                        <div
+                                          class="progress-bar progress-bar-info progress-bar-striped"
+                                          role="progressbar"
+                                          attr.aria-valuenow="{{ progress }}"
+                                          aria-valuemin="0"
+                                          aria-valuemax="100"
+                                          [ngStyle]="{ width: progress + '%' }"
+                                        >
+                                          {{ progress }}%
+                                        </div>
+                                      </div>
+                                 
+                                
+                
+                                    <!-- End Date input -->
+                                    
+                                   
+                
+                                    <!-- Submit button -->
+                                    <button type="submit" class="btn btn-primary btn-block">Add</button>
+                                </form>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>

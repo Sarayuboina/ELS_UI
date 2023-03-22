@@ -39,6 +39,8 @@ import { QuestionsAndAnswersComponent } from './questions-and-answers/questions-
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { TrainerAssignmentsComponent } from './trainer-assignments/trainer-assignments.component';
+import { StudentAssignmentsComponent } from './student-assignments/student-assignments.component';
+import { StudentTodosComponent } from './student-todos/student-todos.component';
 
 
 
@@ -73,6 +75,8 @@ import { TrainerAssignmentsComponent } from './trainer-assignments/trainer-assig
     StudentFeedbackComponent,
     FileUploadComponent,
     TrainerAssignmentsComponent,
+    StudentAssignmentsComponent,
+    StudentTodosComponent,
     
    
   ],

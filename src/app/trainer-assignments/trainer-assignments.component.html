@@ -4,7 +4,61 @@
     <h1 style="color:brown;font-style: oblique;">No assignments available</h1>
    
 </div>
-
+<div *ngIf="msg == '' ">
+    <div  class="card-deck" *ngFor="let ass of assigns">
+        <div class="card mb-3 border-warning">
+            <div class="card-body shadow-lg">
+                {{ass.assignName}}   
+                <span style="float: right;">Due time : {{ ass.endDate | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+                <div *ngIf="user.role==3"><button class="btn btn-warning" style="float:right" data-toggle="modal" type="submit" [attr.data-target]="'#uploadFile' + ass.assignId">Submit</button>
+                    <!-------------------------Upload Assignment--------------------------------->
+                    <div class="modal fade" [id]="'uploadFile'+ ass.assignId" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog d-flex justify-content-center">
+                            <div class="modal-content w-75">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel2">Group Details</h5>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body p-4">
+                                    <form  #groupForm="ngForm" (ngSubmit)="uploadAssign(ass.assignId)" enctype="multipart/form-data">
+                                        <!-- Name input -->
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" >Assignment</label>
+                                            <input type="file" (change)="selectFile($event)" />
+                                           
+                                        </div>
+                                       
+                                        <div *ngIf="currentFile" class="progress my-3">
+                                            <div
+                                              class="progress-bar progress-bar-info progress-bar-striped"
+                                              role="progressbar"
+                                              attr.aria-valuenow="{{ progress }}"
+                                              aria-valuemin="0"
+                                              aria-valuemax="100"
+                                              [ngStyle]="{ width: progress + '%' }"
+                                            >
+                                              {{ progress }}%
+                                            </div>
+                                          </div>
+                                     
+                                    
+                    
+                                        <!-- End Date input -->
+                                        
+                                       
+                    
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn btn-primary btn-block">Add</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</div>     
+                </div>
+                </div>
+                </div>
+                </div>
 <!-------------------------------------Assignment Modal----------------------------------------->
 <div class="modal fade" id="addAssign" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <div class="modal-dialog d-flex justify-content-center">
@@ -22,22 +76,26 @@
                        
                     </div>
                    
-
+                      
                  
                 
 
                     <!-- End Date input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="email2">End Date</label>
-                        <input type="date" [(ngModel)]="assign.endDate" name="endDate" class="form-control" />
+                        <input type="datetime-local" [(ngModel)]="assign.endDate" name="endDate" class="form-control" />
                         
                     </div>
 
                    
 
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block">Add</button>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
+                
+                  
+                  <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+                  
             </div>
         </div>
     </div>

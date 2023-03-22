@@ -15,21 +15,20 @@
           <a class="nav-link" [routerLink]="['/adminSub',id]">Subjects</a>
         </li>
       </ul>
+      <span class="col-7"></span>
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" >
             <a style="font-size: larger"class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <i class="fas fa-caret-square-down"></i><span class="sr-only">(current)</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               
-                <button class="dropdown-item" href="#"  type="submit">Profile</button>
+                
               
               
-              <div class="dropdown-divider"></div>
+              
               <a class="dropdown-item"  [routerLink]="['/reset',id]">Change Password</a>
-              <div class="dropdown-divider"></div>
               
-              <a class="dropdown-item"  role="button" href="#">My Wishlist</a>
               <div class="dropdown-divider"></div>
               <button class="dropdown-item" (click)="logoutUser()"  type="submit">Sign out</button>
               </div>

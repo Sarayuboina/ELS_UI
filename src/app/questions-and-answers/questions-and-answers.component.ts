@@ -89,6 +89,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'top';
       data=>{
         this.snackBar.open("Added successfully","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition})
+          this.ngOnInit();
       },
       error=>{
         this.snackBar.open("Problem occured","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
@@ -105,6 +106,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'top';
       data=>{
         this.snackBar.open("Edited successfully","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition})
+          this.ngOnInit();
       },
       error=>{
         this.snackBar.open("Problem occured","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
@@ -120,6 +122,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'top';
       data=>{
         this.snackBar.open("Edited successfully","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition})
+          this.ngOnInit();
       },
       error=>{
         this.snackBar.open("Problem occured","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
@@ -134,11 +137,13 @@ verticalPosition: MatSnackBarVerticalPosition = 'top';
         data=>{
           this.snackBar.open("Deleted successfully","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
             verticalPosition: this.verticalPosition})
+            this.ngOnInit();
 
         },
         error=>{
           this.snackBar.open("Problem occured","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
             verticalPosition: this.verticalPosition,})
+            this.ngOnInit();
 
         }
       )
@@ -151,11 +156,13 @@ verticalPosition: MatSnackBarVerticalPosition = 'top';
       data=>{
         this.snackBar.open("Deleted successfully","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition})
+          this.ngOnInit();
 
       },
       error=>{
         this.snackBar.open("Problem occured","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,})
+          this.ngOnInit();
 
       }
     )

@@ -6,43 +6,41 @@ import { GroupServiceService } from '../group-service.service';
 import { MainserviceService } from '../mainservice.service';
 
 @Component({
-  selector: 'app-file-upload',
-  templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.css']
+  selector: 'app-student-todos',
+  templateUrl: './student-todos.component.html',
+  styleUrls: ['./student-todos.component.css']
 })
-export class FileUploadComponent implements OnInit {
+export class StudentTodosComponent implements OnInit{
 
+  public loggedIn =false;
+  public id:any;
+  public assigns:any;
   selectedFiles?: FileList;
   currentFile?: File;
   progress = 0;
-  message = '';
-  public groupId:any;
-  public loggedIn:any;
-  public id:any;
-  public user:any;
   fileInfos?: Observable<any>;
+  message: any;
+  constructor(private ms:MainserviceService,private route:ActivatedRoute,private gs:GroupServiceService){
 
-  constructor(private gs: GroupServiceService,private ms:MainserviceService,private route:ActivatedRoute) { }
-
+  }
   ngOnInit(): void {
-    this.groupId=this.route.snapshot.paramMap.get('groupId');
-    this.fileInfos = this.gs.getFiles(this.groupId);
     this.loggedIn = this.ms.isLoggedIn();
     this.id=this.route.snapshot.paramMap.get('userId');
-    this.ms.getUser(this.id).subscribe(
+
+    this.gs.getTodos(this.id).subscribe(
       data=>{
-        this.user=data;
+       this.assigns=data;
       },
       error=>{
 
       }
     )
   }
-
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
   }
-  upload(): void {
+
+  uploadAssign(assignId:number): void {
     this.progress = 0;
   
     if (this.selectedFiles) {
@@ -50,14 +48,14 @@ export class FileUploadComponent implements OnInit {
   
       if (file) {
         this.currentFile = file;
-  
-        this.gs.upload(this.currentFile,this.groupId).subscribe(
+       
+        this.gs.submitFile(this.currentFile,assignId,this.id).subscribe(
           (event: any) => {
             if (event.type === HttpEventType.UploadProgress) {
               this.progress = Math.round(100 * event.loaded / event.total);
             } else if (event instanceof HttpResponse) {
               this.message = event.body.message;
-              this.fileInfos = this.gs.getFiles(this.groupId);
+              
             }
           },
           (err: any) => {
@@ -73,11 +71,9 @@ export class FileUploadComponent implements OnInit {
             this.currentFile = undefined;
           });
       }
-      this.ngOnInit();
+  
       this.selectedFiles = undefined;
     }
   }
 
 }
-
-

@@ -17,6 +17,7 @@ import { StudentClassComponent } from './student-class/student-class.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { StudentGroupsComponent } from './student-groups/student-groups.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
+import { StudentTodosComponent } from './student-todos/student-todos.component';
 import { TrainerClassComponent } from './trainer-class/trainer-class.component';
 import { TrainerGroupsComponent } from './trainer-groups/trainer-groups.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
@@ -109,6 +110,11 @@ const routes: Routes = [
     {
       path:'searchProf/:userId/:searchId',
       component:SearchProfComponent,canActivate:[AuthServiceService]
+      
+    },
+    {
+      path:'myTodo/:userId',
+      component:StudentTodosComponent,canActivate:[AuthServiceService]
       
     }
 ];

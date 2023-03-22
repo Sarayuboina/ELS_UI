@@ -10,6 +10,23 @@ import { Question } from './question';
   providedIn: 'root'
 })
 export class GroupServiceService {
+  getTodos(id:number) :Observable<any>{
+    let url=this.baseUrl+"/assignments/todo/"+id;
+    return this.http.get(url);
+  }
+  submitFile(currentFile: File, assignId: number, id: number) :Observable<HttpEvent<any>>{
+    const formData: FormData = new FormData();
+
+    formData.append('file', currentFile);
+    let url=this.baseUrl+"/assignments/submit/"+assignId+"/"+id;
+
+    const req = new HttpRequest('POST',url, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+  }
   editAnswer(answerId: number, answerName: any) {
     let url=this.baseUrl+'/answers/editAnswer/'+answerId;
   return this.http.patch(url,answerName);

@@ -26,6 +26,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   editPwd(){
+    this.msg='';
     if(this.pass == null || this.npwd == null || this.cpwd == null || this.pass == undefined || this.npwd == undefined || this.cpwd == undefined || this.pass=="" ||this.npwd == "" || this.cpwd == "" ){
       alert("Please fill the details");
     }
