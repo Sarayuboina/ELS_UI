@@ -1,12 +1,12 @@
-<button class="btn btn-warning" style="float:right" data-toggle="modal" type="submit" data-target="#postQues">Post </button>
+<button class="btn btn-warning" style="float:right" data-toggle="modal" type="submit" data-target="#addAssign">Post </button>
 <div *ngIf="msg == 'error' ">
 
     <h1 style="color:brown;font-style: oblique;">No assignments available</h1>
    
 </div>
 
-<!-------------------------------------Group Modal----------------------------------------->
-<div class="modal fade" id="addGroup" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+<!-------------------------------------Assignment Modal----------------------------------------->
+<div class="modal fade" id="addAssign" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <div class="modal-dialog d-flex justify-content-center">
         <div class="modal-content w-75">
             <div class="modal-header">
@@ -14,7 +14,7 @@
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
-                <form  #groupForm="ngForm" (ngSubmit)="createAssignment(groupId)">
+                <form  #groupForm="ngForm" (ngSubmit)="createAssign()">
                     <!-- Name input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" >Assignment</label>
@@ -29,7 +29,7 @@
                     <!-- End Date input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="email2">End Date</label>
-                        <input type="datetime" [(ngModel)]="assign.endDate" name="endDate" class="form-control" />
+                        <input type="date" [(ngModel)]="assign.endDate" name="endDate" class="form-control" />
                         
                     </div>
 
