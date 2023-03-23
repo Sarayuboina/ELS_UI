@@ -30,4 +30,5 @@ export class TrainerDashComponent  implements OnInit{
     // location.href="/login";
   }
   id=this.route.snapshot.paramMap.get('userId');
+  
 }

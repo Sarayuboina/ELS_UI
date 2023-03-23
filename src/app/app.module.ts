@@ -23,7 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {MatSelectModule} from '@angular/material/select';
 
-
+import {MatInputModule} from '@angular/material/input';
 import { AdminGradesComponent } from './admin-grades/admin-grades.component';
 import { AdminSubjectsComponent } from './admin-subjects/admin-subjects.component';
 import { TrainerGroupsComponent } from './trainer-groups/trainer-groups.component';
@@ -41,6 +41,15 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { TrainerAssignmentsComponent } from './trainer-assignments/trainer-assignments.component';
 import { StudentAssignmentsComponent } from './student-assignments/student-assignments.component';
 import { StudentTodosComponent } from './student-todos/student-todos.component';
+import { BookSearchComponent } from './book-search/book-search.component';
+import { BookContainerComponent } from './book-container/book-container.component';
+import { BookTemplateComponent } from './book-template/book-template.component';
+import { BookFavouriteComponent } from './book-favourite/book-favourite.component';
+import {MatCardModule} from '@angular/material/card';
+// import { MatListOptionModule, MatSelectionListModule} from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 
@@ -77,6 +86,10 @@ import { StudentTodosComponent } from './student-todos/student-todos.component';
     TrainerAssignmentsComponent,
     StudentAssignmentsComponent,
     StudentTodosComponent,
+    BookSearchComponent,
+    BookContainerComponent,
+    BookTemplateComponent,
+    BookFavouriteComponent,
     
    
   ],
@@ -90,9 +103,11 @@ import { StudentTodosComponent } from './student-todos/student-todos.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     
-    
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
     MatCheckboxModule,
-    
+    MatCardModule,
     MatSelectModule
     
     

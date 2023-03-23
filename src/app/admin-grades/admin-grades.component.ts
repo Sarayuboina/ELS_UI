@@ -99,7 +99,7 @@ edit(gradId : number){
     data=>{
       console.log("response received....");
       //this.router.navigate(['adminGrad',this.id]);
-      this.ngOnInit();
+     
       this.snackBar.open("Successfully added!!","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition})
      
@@ -109,7 +109,7 @@ edit(gradId : number){
     error=>{
       console.log("error occured...");
       this.router.navigate(['adminGrad',this.id]);
-      this.ngOnInit();
+      
       this.snackBar.open("This grade already exists !!Try with adding different grade","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition})
      
@@ -125,14 +125,14 @@ delete(gradId : number){
   this.adminservice.deleteGrade(gradId).subscribe(
     data=>{
       console.log("response received....");
-      this.ngOnInit();
+      
       this.snackBar.open("Successfully deleted!!","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition})
       
     },
     error=>{
       console.log("error occured...");
-      this.ngOnInit();
+      
       this.snackBar.open("Problem occured!","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition})
      

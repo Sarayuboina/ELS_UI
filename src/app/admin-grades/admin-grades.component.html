@@ -54,7 +54,7 @@
                   </form> -->
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning" (click)="ngOnInit()" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-secondary">Add</button>
         </div>
     </form>
@@ -115,7 +115,7 @@
                   </form> -->
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal" (click)="ngOnInit()">Close</button>
           <button type="submit" class="btn btn-secondary">Edit</button>
         </div>
     </form>
@@ -140,7 +140,7 @@
         </div>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal" (click)="ngOnInit()">Close</button>
           <button type="submit" class="btn btn-danger" (click)="delete(grad.gradId)">Delete</button>
         </div>
    

@@ -1,0 +1,24 @@
+<div *ngIf="user.role==2">
+    <app-trainer-dash></app-trainer-dash>
+</div>
+<div *ngIf="user.role==3">
+    <app-student-dash></app-student-dash>
+</div>
+
+<br>
+
+<div class="flex-container">
+    <form class="example-form">
+        <mat-form-field class="search-field">
+            <input id="search-button-input" matInput type="text" #box (keyup)="onEnter(box.value)">
+            <mat-label>
+                <mat-icon style="font-size: 20px">search</mat-icon>
+            </mat-label>
+            <!-- <mat-placeholder>
+                <mat-icon style="font-size: 20px">search</mat-icon>
+            </mat-placeholder> -->
+        </mat-form-field>
+
+    </form>
+    <app-book-container [itemsList]="itemsList" ></app-book-container>
+</div>

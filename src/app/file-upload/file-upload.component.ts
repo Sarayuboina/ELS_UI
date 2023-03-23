@@ -39,6 +39,15 @@ export class FileUploadComponent implements OnInit {
     )
   }
 
+  public show(blob: Blob | MediaSource){
+    var fileURL: any = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = fileURL;
+    a.target = '_blank';
+    // Don't set download attribute
+    // a.download = "Example.pdf";
+    a.click();
+}
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
   }

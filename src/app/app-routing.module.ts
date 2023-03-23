@@ -5,6 +5,9 @@ import { AdminGradesComponent } from './admin-grades/admin-grades.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminSubjectsComponent } from './admin-subjects/admin-subjects.component';
 import { AuthServiceService } from './auth-service.service';
+import { BookFavouriteComponent } from './book-favourite/book-favourite.component';
+import { BookSearchComponent } from './book-search/book-search.component';
+import { BookTemplateComponent } from './book-template/book-template.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { HomeComponent } from './home/home.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
@@ -116,6 +119,15 @@ const routes: Routes = [
       path:'myTodo/:userId',
       component:StudentTodosComponent,canActivate:[AuthServiceService]
       
+    },
+    {
+      path:'books/:userId',component:BookTemplateComponent,canActivate:[AuthServiceService]
+    },
+    {
+      path:'book-search/:userId',component:BookSearchComponent,canActivate:[AuthServiceService]
+    },
+    {
+      path:'book-fav/:userId',component:BookFavouriteComponent,canActivate:[AuthServiceService]
     }
 ];
 

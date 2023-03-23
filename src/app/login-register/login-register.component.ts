@@ -171,6 +171,7 @@ verticalPosition: MatSnackBarVerticalPosition = 'top';
         this.snackBar.open("login succesfull","X",{duration:this.durationInSeconds*1000,horizontalPosition: this.horizontalPosition,
               verticalPosition: this.verticalPosition,})
               this.mainservice.logUser(data.token);
+              localStorage.setItem("uname",this.userLogin.userName);
               this.mainservice.getUserData(this.userLogin.userName).subscribe(
                 data=>{
                   if(data.role==1){

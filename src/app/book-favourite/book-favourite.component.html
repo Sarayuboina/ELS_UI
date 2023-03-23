@@ -1,0 +1,13 @@
+<div *ngIf="user.role==2">
+    <app-trainer-dash></app-trainer-dash>
+</div>
+<div *ngIf="user.role==3">
+    <app-student-dash></app-student-dash>
+</div>
+<div *ngIf="itemsList.length == 0"> 
+    <img class="style=align-items-center;margin-leftt:40%;" src="assets/img/empty.jpg" style="width:60%;height:60%;" alt="..."  />
+  
+</div>
+<app-book-container [itemsList]="itemsList" [favCheck]="favCheck" ></app-book-container>
+<!-- <app-book-template *ngFor="let item of items" [favCheck]="favCheck"  [items]="items" (addNews)="addToFavouriteList($event)" (deleteFavBook)='deleteBookFav($event)'></app-book-template> -->
+  
